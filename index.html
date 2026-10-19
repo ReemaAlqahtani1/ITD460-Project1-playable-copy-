@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Whisper Pines.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Whisper Pines" startnode="1" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="9A58B0D8-1358-4A36-85A1-DC9847404461" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+<tw-storydata name="Whisper Pines" startnode="1" creator="Twine" creator-version="2.12.1" format="Harlowe" format-version="3.3.9" ifid="9A58B0D8-1358-4A36-85A1-DC9847404461" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
     background:
         linear-gradient(rgba(7, 14, 11, 0.88), rgba(10, 18, 14, 0.96)),
         #0b1511;
@@ -61,107 +61,285 @@ hr {
     margin: 25px 0;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="625,150" size="100,100">(set: $clues to 0)
 (set: $influence to 0)
-(set: $bracelet to false)
-(set: $warning to false)
+(set: $battery to 100)
+
+(set: $tookBracelet to false)
 (set: $signal to false)
-(set: $truth to false)
-(set: $tessaClue to false)
+(set: $hiddenEvidence to false)
+(set: $journal to false)
+(set: $tessa to false)
+
+(set: $checkedTree to false)
+(set: $checkedFootprints to false)
+(set: $checkedStone to false)
+(set: $trailSearches to 0)
+
+(set: $checkedPhotos to false)
+(set: $checkedWall to false)
+(set: $checkedBackpack to false)
+(set: $roomSearches to 0)
+
+(set: $route to &quot;none&quot;)
+(display: &quot;HUD&quot;)
+
 &lt;h1&gt;THE WHISPER PINES&lt;/h1&gt;
 
 &lt;i&gt;Some voices are worth following. Others want you to get lost.&lt;/i&gt;
 
-&lt;hr&gt;
-Two years have passed since Nora disappeared in Whisper Pines Forest.
+Two years have passed since Nora disappeared inside Whisper Pines Forest.
 
-Riley Bennett, 16, is sitting alone near one of the trails she and Nora used to explore as children.
+Riley returns to one of the trails they used to explore together.
 
 The forest suddenly becomes silent.
 
-Then Riley hears a familiar voice.
+Then—
 
 &quot;Riley...&quot;
+
+Riley freezes.
 
 &quot;Help me.&quot;
 
-[[Ignore the voice-&gt;Walk Away]]
+It&#39;s Nora&#39;s voice.
 
-[[Follow the voice-&gt;Bracelet]]</tw-passagedata><tw-passagedata pid="2" name="Walk Away" tags="" position="475,300" size="100,100">Riley freezes.
+[[Follow Nora&#39;s voice-&gt;Trail Search]]</tw-passagedata><tw-passagedata pid="2" name="Bracelet" tags="" position="600,300" size="100,100">(display: &quot;HUD&quot;)
 
-For a moment, she considers following the voice.
+Riley follows Nora&#39;s voice deeper into the forest.
 
-But Nora has been missing for two years.
+A sudden flash of white light appears between the trees.
 
-Riley tells herself it cannot be real.
+When Riley&#39;s vision clears, she notices something lying beneath a stone.
 
-She turns around and leaves the forest.
+A braided friendship bracelet.
 
-That night, she lies awake in her bedroom.
+Nora&#39;s bracelet.
 
-Then she hears a whisper outside her window.
+Riley remembers making two identical bracelets when they were children.
 
-&quot;Riley...&quot;
-
-&lt;h2&gt;ENDING: WALK AWAY&lt;/h2&gt;
-
-Riley survives, but the truth about Nora remains unknown.
-
-
-
-[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="3" name="Bracelet" tags="" position="725,300" size="100,100">Riley follows the voice deeper into the forest.
-
-A sudden white light flashes between the trees.
-
-When her vision returns, she notices something beneath a stone.
-
-Nora&#39;s friendship bracelet.
-
-Riley stares at it.
+What should she do?
 
 [[Take the bracelet-&gt;Take Bracelet]]
 
-[[Leave the bracelet-&gt;Leave Bracelet]]</tw-passagedata><tw-passagedata pid="4" name="Take Bracelet" tags="" position="600,425" size="100,100">(set: $bracelet to true)
+[[Leave the bracelet-&gt;Leave Bracelet]]</tw-passagedata><tw-passagedata pid="3" name="Take Bracelet" tags="" position="400,400" size="100,100">(set: $tookBracelet to true)
 (set: $clues to $clues + 1)
+(display: &quot;HUD&quot;)
 
-The moment Riley touches the bracelet, a memory returns.
+Riley picks up the bracelet.
 
-She remembers sitting beside Nora when they were children, making matching bracelets.
+The moment it touches her hand, a memory flashes through her mind.
 
-&quot;If one of us gets lost?&quot; Nora asked.
+She and Nora are sitting beside the river years ago, tying matching bracelets around each other&#39;s wrists.
 
-&quot;The other one comes looking,&quot; Riley answered.
+&quot;If one of us gets lost,&quot; Nora says, &quot;the other one comes looking.&quot;
 
-Nearby, Riley notices a folded piece of paper.
+The memory disappears as quickly as it came.
 
-[[Read Nora&#39;s note-&gt;Read Note]]
+&#39;&#39;CLUE FOUND: Friendship Bracelet&#39;&#39;
 
-[[Ignore the note-&gt;Two Signals]]</tw-passagedata><tw-passagedata pid="5" name="Leave Bracelet" tags="" position="750,425" size="100,100">Riley leaves the bracelet beneath the stone.
+&#39;&#39;Clues: $clues&#39;&#39;
 
-She avoids the strange memory, but something feels unfinished.
+Riley puts the bracelet in her pocket.
 
-Nora&#39;s voice calls again.
+Then she hears something deeper in the forest.
 
-&quot;Riley!&quot;
+[[Continue-&gt;Sound]]</tw-passagedata><tw-passagedata pid="4" name="Leave Bracelet" tags="" position="550,425" size="100,100">(set: $tookBracelet to false)
+(set: $influence to $influence + 1)
+(display: &quot;HUD&quot;)
 
-[[Mark the trail before continuing-&gt;Mark Trail]]
+Riley stares at the bracelet but leaves it beneath the stone.
 
-[[Rush after the voice-&gt;Rush Voice]]</tw-passagedata><tw-passagedata pid="6" name="Read Note" tags="" position="537.5,550" size="100,100">(set: $warning to true)
+Something about touching it feels wrong.
+
+As Riley walks away, a whisper moves through the trees.
+
+&quot;Riley...&quot;
+
+She turns around.
+
+No one is there.
+
+&#39;&#39;Whisper Influence: $influence&#39;&#39;
+
+Then two different sounds begin to echo through the forest.
+
+[[Continue-&gt;Sound]]</tw-passagedata><tw-passagedata pid="5" name="Read Journal" tags="" position="575,1225" size="100,100">(set: $journal to true)
 (set: $clues to $clues + 1)
+(display: &quot;HUD&quot;)
 
-Riley opens the note.
+Riley opens Nora&#39;s journal.
 
-It is written in Nora&#39;s handwriting.
+Most of the entries are two years old.
 
-&quot;If you hear me crying, don&#39;t come closer.&quot;
+But the final pages are much newer.
 
-Riley looks into the forest.
+Nora writes about hearing familiar voices in the forest.
 
-Then she hears Nora scream.
+She describes seeing people who should not have been there.
 
-[[Continue-&gt;Two Signals]]</tw-passagedata><tw-passagedata pid="7" name="Two Signals" tags="" position="675,725" size="100,100">Riley suddenly hears Nora crying from the left.
+One sentence is underlined several times:
 
-&quot;Riley! Please help me!&quot;
+&quot;It learns from what you remember.&quot;
 
-But from the opposite direction comes another sound.
+Riley realizes the forest may be using memories to create convincing imitations.
+
+&#39;&#39;CLUE FOUND: Nora&#39;s Journal&#39;&#39;
+
+&#39;&#39;Clues: $clues&#39;&#39;
+
+Suddenly, Riley&#39;s phone vibrates.
+
+For the first time since entering the forest, she has one bar of signal.
+
+[[Continue-&gt;Phone Signal]]</tw-passagedata><tw-passagedata pid="6" name="Call Tessa" tags="" position="700,1400" size="100,100">(set: $tessa to true)
+(set: $clues to $clues + 1)
+(display: &quot;HUD&quot;)
+
+Tessa answers.
+
+&quot;Riley? Where are you?&quot;
+
+Riley quickly explains what happened.
+
+Tessa goes silent.
+
+Then she says:
+
+&quot;Listen to me.&quot;
+
+&quot;Nora never shouted your name when you two got separated.&quot;
+
+&quot;She always used the three whistles.&quot;
+
+Riley looks toward the forest.
+
+Whistle.
+
+Whistle.
+
+Whistle.
+
+&#39;&#39;EVIDENCE VERIFIED: Private Signal&#39;&#39;
+
+&#39;&#39;Clues: $clues&#39;&#39;
+
+The phone signal disappears.
+
+Ahead, Riley sees Nora standing between the trees.
+
+[[Continue-&gt;Final Encounter]]</tw-passagedata><tw-passagedata pid="7" name="Forest Keeps Two" tags="" position="1100,1375" size="100,100">Riley looks at Nora.
+
+For a moment, every warning and every clue disappears from her mind.
+
+She takes Nora&#39;s hand.
+
+The girl smiles.
+
+&quot;Come with me.&quot;
+
+They walk deeper into the forest.
+
+The trees become thicker.
+
+The trail disappears.
+
+Riley finally stops.
+
+&quot;Nora?&quot;
+
+The girl turns around.
+
+Her face begins to change.
+
+Her voice becomes Riley&#39;s own.
+
+&quot;Riley...&quot;
+
+The forest goes silent.
+
+Days later, another missing-person poster appears in Whisper Pines.
+
+Beside Nora Hayes is a new photograph.
+
+RILEY BENNETT
+AGE 16
+
+&lt;hr&gt;
+
+&lt;h2&gt;ENDING: THE FOREST KEEPS TWO&lt;/h2&gt;
+
+Riley follows the imitation, and the forest claims her too.
+
+[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="8" name="Ending Check" tags="" position="900,1525" size="100,100">(if: $route is &quot;cryingInvestigate&quot;)[
+    (go-to: &quot;Found&quot;)
+]
+(else-if: $route is &quot;whistles&quot; and $tookBracelet is true)[
+    (go-to: &quot;Found&quot;)
+]
+(else-if: $route is &quot;whistles&quot; and $journal is true)[
+    (go-to: &quot;Found&quot;)
+]
+(else-if: $route is &quot;whistles&quot; and $tessa is true)[
+    (go-to: &quot;Found&quot;)
+]
+(else:)[
+    (go-to: &quot;She Never Really Left&quot;)
+]</tw-passagedata><tw-passagedata pid="9" name="Found" tags="" position="1000,1675" size="100,100">Riley refuses to take Nora&#39;s hand.
+
+Instead, she follows the signal and the evidence she has collected.
+
+The clues lead her back toward the hidden area beneath the cabin.
+
+There, Riley notices something she missed before.
+
+A second passage.
+
+She follows it.
+
+At the end of the tunnel, someone is sitting against the wall.
+
+&quot;Nora?&quot;
+
+The girl looks up.
+
+She does not call Riley&#39;s name.
+
+Instead—
+
+Whistle.
+
+Whistle.
+
+Whistle.
+
+Riley immediately recognizes the signal.
+
+This time, she knows.
+
+This is Nora.
+
+Riley runs toward her.
+
+After two years of searching, she has finally found her best friend.
+
+&lt;hr&gt;
+
+&lt;h2&gt;ENDING: FOUND&lt;/h2&gt;
+
+Riley uses the private signal and supporting evidence to recognize the real Nora and resolve the search.
+
+&lt;b&gt;TRUE ENDING&lt;/b&gt;
+
+[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="10" name="Sound" tags="" position="400,625" size="100,100">(display: &quot;HUD&quot;)
+
+Riley stops walking.
+
+From somewhere to her left, she hears someone crying.
+
+It sounds exactly like Nora.
+
+&quot;Riley... please...&quot;
+
+But from deeper in the opposite direction comes another sound.
 
 Whistle.
 
@@ -171,277 +349,625 @@ Whistle.
 
 Three short whistles.
 
-Riley remembers.
+Riley remembers that sound.
 
-When she and Nora became separated as children, they never shouted each other&#39;s names.
+It was the signal she and Nora used whenever they became separated during their childhood adventures.
 
-Three whistles meant:
+Which sound should Riley follow?
 
-&quot;I&#39;m here.&quot;
+[[Follow the crying-&gt;Crying Branch]]
 
-[[Follow Nora&#39;s crying-&gt;Crying Route]]
+[[Follow the three whistles-&gt;Whistles Branch]]</tw-passagedata><tw-passagedata pid="11" name="Crying Branch" tags="" position="300,800" size="100,100">(set: $route to &quot;crying&quot;)
+(display: &quot;HUD&quot;)
 
-[[Follow the three whistles-&gt;Whistle Route]]</tw-passagedata><tw-passagedata pid="8" name="Mark Trail" tags="" position="725,550" size="100,100">(set: $clues to $clues + 1)
+Riley follows the crying.
 
-Riley marks trees and rocks as she walks.
+The voice becomes louder.
 
-If something goes wrong, she may still be able to find her way back.
+&quot;Riley!&quot;
 
-[[Continue-&gt;Two Signals]]</tw-passagedata><tw-passagedata pid="9" name="Rush Voice" tags="" position="850,550" size="100,100">(set: $influence to $influence + 1)
+&quot;Please help me!&quot;
 
-Riley runs toward Nora&#39;s voice.
+Through the trees, Riley finally sees a girl standing in the fog.
 
-After several minutes, she realizes she no longer recognizes the trail.
+The girl looks like Nora.
 
-The forest seems to have changed around her.
+Same hair.
 
-[[Continue-&gt;Two Signals]]</tw-passagedata><tw-passagedata pid="10" name="Crying Route" tags="" position="575,850" size="100,100">Riley follows the crying.
+Same face.
 
-Soon she sees a girl standing between the trees.
+Same voice.
 
-It looks exactly like Nora.
+But something about her feels wrong.
 
-&quot;Riley... please help me.&quot;
+Riley has two choices.
 
-Then she says it again.
+[[Follow the figure deeper-&gt;Forest Keeps Two]]
 
-Exactly the same way.
-
-[[Approach her immediately-&gt;Approach Nora]]
-
-[[Stay hidden and observe-&gt;Observe Nora]]</tw-passagedata><tw-passagedata pid="11" name="Whistle Route" tags="" position="775,850" size="100,100">(set: $signal to true)
+[[Ask for the secret signal-&gt;Signal Puzzle]]</tw-passagedata><tw-passagedata pid="12" name="Whistles Branch" tags="" position="425,800" size="100,100">(set: $route to &quot;whistles&quot;)
+(set: $signal to true)
 (set: $clues to $clues + 1)
+(display: &quot;HUD&quot;)
 
 Riley follows the three whistles.
 
-They lead her toward an abandoned fire lookout cabin.
+The sound leads her to an abandoned fire lookout cabin.
 
-There are fresh footprints outside.
+The door is partly open.
 
-[[Enter the cabin immediately-&gt;Enter Cabin]]
+Inside, Riley finds photographs, maps, and personal belongings.
 
-[[Search outside first-&gt;Search Outside]]</tw-passagedata><tw-passagedata pid="12" name="Approach Nora" tags="" position="512.5,975" size="100,100">(set: $influence to $influence + 2)
+Then she notices a worn journal beneath the table.
 
-Riley steps closer.
+Nora&#39;s name is written inside the cover.
 
-The girl smiles.
+&#39;&#39;CLUE FOUND: Private Signal&#39;&#39;
 
-Then she walks deeper into the fog.
+&#39;&#39;Clues: $clues&#39;&#39;
 
-Riley follows.
+What should Riley do with the journal?
 
-Eventually, the girl disappears.
+[[Read the journal-&gt;Read Journal]]
 
-Ahead, Riley sees an abandoned fire lookout cabin.
+[[Destroy / leave the journal-&gt;Leave Journal]]</tw-passagedata><tw-passagedata pid="13" name="Hidden Room" tags="" position="125,1050" size="100,100">(display: &quot;HUD&quot;)
 
-[[Enter the cabin-&gt;Journal]]</tw-passagedata><tw-passagedata pid="13" name="Observe Nora" tags="" position="637.5,975" size="100,100">(set: $clues to $clues + 2)
+Riley moves the broken boards aside.
 
-Riley stays hidden.
+Beneath the abandoned cabin is a narrow hidden room.
 
-The girl moves.
+She climbs down.
 
-Then, seconds later, she repeats the exact same movement.
+Inside, she finds photographs, blankets, food containers, and old drawings.
 
-Again.
+Then she sees someone lying at the other end of the room.
 
-Same expression.
+A girl.
 
-Same words.
+She looks like Nora.
 
-Riley realizes:
+Riley&#39;s heart starts racing.
 
-This may not be Nora.
+Should she rush toward her immediately, or investigate the room first?
 
-[[Follow the trail-&gt;Journal]]</tw-passagedata><tw-passagedata pid="14" name="Journal" tags="" position="700,1150" size="100,100">Riley finds Nora&#39;s journal.
+[[Rescue immediately-&gt;She Never Really Left]]
 
-Most entries are dated two years ago.
+[[Investigate the room-&gt;Hidden Room Search]]</tw-passagedata><tw-passagedata pid="14" name="She Never Really Left" tags="" position="250,1175" size="100,100">
+Riley refuses to follow the figure.
 
-But the final entry says:
-
-Yesterday.
-
-Riley&#39;s hands begin to shake.
-
-[[Read the entire journal-&gt;Read Journal]]
-
-[[Stop reading-&gt;Tessa]]</tw-passagedata><tw-passagedata pid="15" name="Enter Cabin" tags="" position="825,975" size="100,100">(set: $clues to $clues + 1)
-
-Inside the cabin, Riley finds photographs covering the walls.
-
-One shows Riley entering the forest earlier that same day.
-
-Someone has been watching her.
-
-Then she finds Nora&#39;s journal.
-
-[[Read the journal-&gt;Journal]]</tw-passagedata><tw-passagedata pid="16" name="Search Outside" tags="" position="975,975" size="100,100">(set: $clues to $clues + 2)
-
-Behind the cabin, Riley finds fresh footprints.
-
-They lead to a hidden entrance beneath the structure.
-
-Riley remembers the location before going inside.
-
-[[Enter the cabin-&gt;Journal]]</tw-passagedata><tw-passagedata pid="17" name="Read Journal" tags="" position="637.5,1275" size="100,100">(set: $truth to true)
-(set: $clues to $clues + 2)
-
-As Riley reads, a memory returns.
-
-She was with Nora the night Nora disappeared.
-
-Nora had screamed:
-
-&quot;Don&#39;t look at it!&quot;
-
-Then there was a bright white light.
-
-After that...
-
-Riley remembered nothing.
-
-Until now.
-
-[[Continue-&gt;Tessa]]</tw-passagedata><tw-passagedata pid="18" name="Tessa" tags="" position="762.5,1275" size="100,100">For a few seconds, Riley&#39;s phone gets one bar of signal.
-
-She could call Tessa.
-
-Or continue alone.
-
-[[Call Tessa-&gt;Call Tessa]]
-
-[[Continue alone-&gt;Final Choice]]</tw-passagedata><tw-passagedata pid="19" name="Call Tessa" tags="" position="700,1400" size="100,100">(set: $tessaClue to true)
-(set: $clues to $clues + 2)
-
-Tessa answers.
-
-&quot;Riley, listen to me.&quot;
-
-&quot;Nora never called your name when you two got lost.&quot;
-
-&quot;She always whistled.&quot;
-
-The signal disappears.
-
-[[Go to the clearing-&gt;Final Choice]]</tw-passagedata><tw-passagedata pid="20" name="Final Choice" tags="" position="850,1400" size="100,100">Riley enters a clearing.
-
-Nora stands between the trees.
-
-Exactly as Riley remembers her.
-
-&quot;Riley...&quot;
-
-&quot;It&#39;s really me.&quot;
-
-Nora holds out her hand.
-
-&quot;Come with me.&quot;
-
-Then—
-
-Whistle.
-
-Whistle.
-
-Whistle.
-
-The childhood signal.
-
-[[Trust Nora-&gt;Forest Keeps Two]]
-
-[[Trust the whistles-&gt;Ending Check]]</tw-passagedata><tw-passagedata pid="21" name="Forest Keeps Two" tags="" position="1100,1375" size="100,100">Riley takes Nora&#39;s hand.
-
-The girl smiles.
-
-They walk deeper into the forest.
-
-Soon, there is no trail.
-
-No cabin.
-
-No way back.
-
-&quot;Nora?&quot;
-
-Silence.
-
-Then Riley hears her own voice behind her.
-
-&quot;Riley?&quot;
-
-The screen fades to black.
-
-
-&lt;h2&gt;ENDING: THE FOREST KEEPS TWO&lt;/h2&gt;
-
-Days later, a new missing-person poster appears beside Nora&#39;s.
-
-RILEY BENNETT
-AGE 16
-
-[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="22" name="Ending Check" tags="" position="900,1525" size="100,100">(if: $clues &gt;= 6)[
-    (go-to: &quot;Found&quot;)
-]
-(else:)[
-    (go-to: &quot;Never Really Left&quot;)
-]
-</tw-passagedata><tw-passagedata pid="23" name="Found" tags="" position="1000,1675" size="100,100">Riley follows the whistles.
-
-They lead her back toward the cabin.
-
-Beneath the floor, she finds a hidden room.
-
-Someone is sitting inside.
-
-&quot;Nora?&quot;
-
-Nora looks up.
-
-&quot;Riley?&quot;
-
-Riley runs toward her.
-
-&quot;You&#39;ve been missing for two years.&quot;
-
-Nora looks confused.
-
-&quot;Two years?&quot;
-
-She shakes her head.
-
-&quot;Riley... I&#39;ve only been here for two days.&quot;
-
-At sunrise, Riley and Nora finally leave the forest together.
-
-&lt;hr&gt;
-
-&lt;h2&gt;ENDING: FOUND&lt;/h2&gt;
-
-&lt;b&gt;TRUE ENDING&lt;/b&gt;
-
-
-[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="24" name="Never Really Left" tags="" position="775,1675" size="100,100">Riley follows the whistles.
+She follows the signal instead.
 
 Eventually, she finds a path leading out of the forest.
 
-She escapes.
+She survives.
 
-But something feels wrong.
+But she never finds enough evidence to know exactly what happened.
 
-Weeks later, Riley sits alone in her bedroom.
+Was the girl inside the forest really Nora?
 
-She looks toward the window.
+Was the signal real?
 
-Nora is standing in the reflection beside her.
+Or did The Whisper simply learn another way to manipulate her?
 
-&quot;Let&#39;s go back.&quot;
+Days pass.
 
-Riley quickly turns around.
+Then weeks.
+
+One night, Riley looks into her bedroom window.
+
+For a moment, Nora is standing in the reflection behind her.
+
+&quot;Riley...&quot;
+
+Riley turns around.
 
 Nobody is there.
 
+She never knows whether she truly escaped Whisper Pines.
+
+&lt;hr&gt;
+
 &lt;h2&gt;ENDING: SHE NEVER REALLY LEFT&lt;/h2&gt;
 
-[[Play Again-&gt;Start]]</tw-passagedata></tw-storydata>
+Riley leaves without knowing whether she found the real Nora or fully escaped the forest&#39;s influence.
+
+[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="15" name="Investigate First" tags="" position="375,1175" size="100,100">(set: $hiddenEvidence to true)
+(set: $clues to $clues + 1)
+(set: $route to &quot;cryingInvestigate&quot;)
+(display: &quot;HUD&quot;)
+
+Riley forces herself not to rush forward.
+
+Instead, she examines the room.
+
+There are photographs of the forest.
+
+Repeated symbols carved into the walls.
+
+Notes about voices appearing between the trees.
+
+One photograph shows two versions of the same person standing in different parts of the forest.
+
+Riley looks back toward the girl.
+
+Something here can imitate people.
+
+&#39;&#39;EVIDENCE FOUND: Forest Imitation&#39;&#39;
+
+&#39;&#39;Clues: $clues&#39;&#39;
+
+The girl slowly opens her eyes.
+
+&quot;Riley?&quot;
+
+Riley now has to decide whether to trust what she sees.
+
+[[Continue-&gt;Final Encounter]]</tw-passagedata><tw-passagedata pid="16" name="Final Encounter" tags="" position="300,1500" size="100,100">Nora stands in front of Riley.
+
+She looks exactly the way Riley remembers her.
+
+Same face.
+
+Same voice.
+
+Same expression.
+
+&quot;Riley...&quot;
+
+Nora reaches out her hand.
+
+&quot;It&#39;s really me.&quot;
+
+&quot;Come with me.&quot;
+
+Then, from somewhere behind Riley—
+
+Whistle.
+
+Whistle.
+
+Whistle.
+
+Riley looks between Nora and the direction of the signal.
+
+&lt;hr&gt;
+
+&#39;&#39;Evidence Collected: $clues&#39;&#39;
+
+&#39;&#39;Whisper Influence: $influence&#39;&#39;
+
+(if: $tookBracelet is true)[
+✓ Friendship Bracelet
+]
+
+(if: $signal is true)[
+✓ Private Signal
+]
+
+(if: $journal is true)[
+✓ Nora&#39;s Journal
+]
+
+(if: $hiddenEvidence is true)[
+✓ Hidden Room Evidence
+]
+
+(if: $tessa is true)[
+✓ Tessa&#39;s Verification
+]
+
+&lt;hr&gt;
+
+Riley must make her final decision.
+
+[[Go with Nora-&gt;Forest Keeps Two]]
+
+[[Use your evidence-&gt;Evidence Check]]</tw-passagedata><tw-passagedata pid="17" name="Leave Journal" tags="" position="500,1350" size="100,100">(set: $journal to false)
+(set: $influence to $influence + 1)
+(display: &quot;HUD&quot;)
+
+Riley closes the journal.
+
+She does not know whether the words inside are real or another trick.
+
+She leaves it behind.
+
+As she turns away, she hears Nora whisper directly behind her.
+
+&quot;You shouldn&#39;t have done that.&quot;
+
+Riley spins around.
+
+Nobody is there.
+
+&#39;&#39;Whisper Influence: $influence&#39;&#39;
+
+Then her phone vibrates.
+
+One bar of signal appears.
+
+[[Continue-&gt;Phone Signal]]</tw-passagedata><tw-passagedata pid="18" name="Phone Signal" tags="" position="575,1475" size="100,100">(display: &quot;HUD&quot;)
+
+Riley looks at her phone.
+
+One bar.
+
+The signal is weak and may disappear at any moment.
+
+She could call Tessa, the third member of their childhood group.
+
+Or she could continue alone.
+
+[[Call Tessa-&gt;Call Tessa]]
+
+[[Continue alone-&gt;Continue Alone]]</tw-passagedata><tw-passagedata pid="19" name="Continue Alone" tags="" position="575,1600" size="100,100">(set: $tessa to false)
+(display: &quot;HUD&quot;)
+
+Riley looks at Tessa&#39;s name on the screen.
+
+Then the signal begins to disappear.
+
+She puts the phone away.
+
+Whatever happens next, she will have to trust her own memory.
+
+From somewhere ahead—
+
+Whistle.
+
+Whistle.
+
+Whistle.
+
+Then Nora steps out from between the trees.
+
+[[Continue-&gt;Final Encounter]]</tw-passagedata><tw-passagedata pid="20" name="Trail Search" tags="" position="750,275" size="100,100">(display: &quot;HUD&quot;)
+
+Nora&#39;s voice disappears deeper into the trees.
+
+Riley raises her flashlight.
+
+The trail contains several things she can investigate.
+
+&#39;&#39;SEARCH THE AREA&#39;&#39;
+
+(if: not $checkedTree)[
+[[🌲 Inspect the carved tree-&gt;Inspect Tree]]
+]
+(else:)[
+✓ Carved tree searched
+]
+
+(if: not $checkedFootprints)[
+[[👣 Examine the footprints-&gt;Inspect Footprints]]
+]
+(else:)[
+✓ Footprints examined
+]
+
+(if: not $checkedStone)[
+[[🪨 Search beneath the stone-&gt;Inspect Stone]]
+]
+(else:)[
+✓ Stone searched
+]
+
+------------------------------
+
+(if: $trailSearches &gt;= 2)[
+Riley has searched enough of the area.
+
+[[Follow Nora&#39;s voice deeper-&gt;Bracelet]]
+]
+(else:)[
+&#39;&#39;Search at least two locations before continuing.&#39;&#39;
+]</tw-passagedata><tw-passagedata pid="21" name="HUD" tags="" position="950,225" size="100,100">&#39;&#39;🔦 FLASHLIGHT:&#39;&#39; $battery &#39;&#39;/ 100&#39;&#39;
+
+&#39;&#39;🔎 EVIDENCE:&#39;&#39; $clues
+
+&#39;&#39;🌲 WHISPER INFLUENCE:&#39;&#39; $influence &#39;&#39;/ 5&#39;&#39;
+
+------------------------------</tw-passagedata><tw-passagedata pid="22" name="Inspect Tree" tags="" position="750,400" size="100,100">(set: $checkedTree to true)
+(set: $trailSearches to $trailSearches + 1)
+(set: $battery to $battery - 10)
+(set: $clues to $clues + 1)
+
+(display: &quot;HUD&quot;)
+
+Riley shines her flashlight across an old tree.
+
+There are letters carved into the bark.
+
+&#39;&#39;R + N&#39;&#39;
+
+Riley remembers carving them with Nora when they were children.
+
+&#39;&#39;EVIDENCE FOUND: Childhood Carving&#39;&#39;
+
+[[Return to search-&gt;Trail Search]]</tw-passagedata><tw-passagedata pid="23" name="Inspect Footprints" tags="" position="875,400" size="100,100">(set: $checkedFootprints to true)
+(set: $trailSearches to $trailSearches + 1)
+(set: $battery to $battery - 10)
+
+(display: &quot;HUD&quot;)
+
+Riley kneels beside a set of footprints.
+
+They look fresh.
+
+But halfway across the trail...
+
+they suddenly stop.
+
+No footprints continue in any direction.
+
+Something is wrong.
+
+(set: $influence to $influence + 1)
+
+&#39;&#39;The Whisper feels closer.&#39;&#39;
+
+[[Return to search-&gt;Trail Search]]</tw-passagedata><tw-passagedata pid="24" name="Inspect Stone" tags="" position="1000,400" size="100,100">(set: $checkedStone to true)
+(set: $trailSearches to $trailSearches + 1)
+(set: $battery to $battery - 10)
+
+(display: &quot;HUD&quot;)
+
+Riley moves a small stone beside the trail.
+
+Something colorful is trapped underneath it.
+
+A piece of braided thread.
+
+It looks familiar.
+
+[[Return to search-&gt;Trail Search]]</tw-passagedata><tw-passagedata pid="25" name="Signal Puzzle" tags="" position="425,925" size="100,100">(display: &quot;HUD&quot;)
+
+Riley steps away from the figure.
+
+&quot;If you&#39;re really Nora...&quot;
+
+The figure watches her.
+
+&quot;Give me our signal.&quot;
+
+The forest becomes completely silent.
+
+Riley remembers that their childhood signal had a specific rhythm.
+
+&#39;&#39;Which signal should Riley trust?&#39;&#39;
+
+[[● ● ●  Three short whistles-&gt;Signal Correct]]
+
+[[● — ●  Short, long, short-&gt;Signal Wrong]]
+
+[[— ● —  Long, short, long-&gt;Signal Wrong]]</tw-passagedata><tw-passagedata pid="26" name="Signal Correct" tags="" position="475,1050" size="100,100">(set: $signal to true)
+(set: $clues to $clues + 1)
+
+(display: &quot;HUD&quot;)
+
+Whistle.
+
+Whistle.
+
+Whistle.
+
+Three short whistles.
+
+The figure in front of Riley freezes.
+
+Then—
+
+the same three whistles answer from behind the abandoned cabin.
+
+The figure slowly disappears into the fog.
+
+&#39;&#39;PUZZLE SOLVED&#39;&#39;
+
+&#39;&#39;EVIDENCE FOUND: Private Signal&#39;&#39;
+
+[[Search beneath the cabin-&gt;Hidden Room]]</tw-passagedata><tw-passagedata pid="27" name="Signal Wrong" tags="" position="625,1050" size="100,100">(set: $influence to $influence + 1)
+
+(display: &quot;HUD&quot;)
+
+Riley repeats the pattern.
+
+For a moment, nothing happens.
+
+Then the girl smiles.
+
+Too slowly.
+
+Too widely.
+
+&quot;No...&quot;
+
+Riley realizes that was not their signal.
+
+The Whisper has become stronger.
+
+&#39;&#39;Wrong signal.&#39;&#39;
+
+[[Try again-&gt;Signal Puzzle]]</tw-passagedata><tw-passagedata pid="28" name="Hidden Room Search" tags="" position="300,1300" size="100,100">(display: &quot;HUD&quot;)
+
+Riley enters the hidden room.
+
+Nora is lying across the room.
+
+But Riley forces herself to investigate before approaching her.
+
+&#39;&#39;SEARCH THE ROOM&#39;&#39;
+
+(if: not $checkedPhotos)[
+[[📷 Examine the photographs-&gt;Search Photos]]
+]
+(else:)[
+✓ Photographs examined
+]
+
+(if: not $checkedWall)[
+[[✧ Inspect the symbols on the wall-&gt;Search Wall]]
+]
+(else:)[
+✓ Wall examined
+]
+
+(if: not $checkedBackpack)[
+[[🎒 Search the old backpack-&gt;Search Backpack]]
+]
+(else:)[
+✓ Backpack searched
+]
+
+------------------------------
+
+&#39;&#39;Investigation Progress:&#39;&#39; $roomSearches &#39;&#39;/ 3&#39;&#39;
+
+(if: $roomSearches &gt;= 2)[
+[[Approach Nora-&gt;Final Encounter]]
+]
+(else:)[
+&#39;&#39;Riley needs more evidence before approaching her.&#39;&#39;
+]</tw-passagedata><tw-passagedata pid="29" name="Search Photos" tags="" position="175,1675" size="100,100">(set: $checkedPhotos to true)
+(set: $roomSearches to $roomSearches + 1)
+(set: $battery to $battery - 10)
+(set: $clues to $clues + 1)
+
+(display: &quot;HUD&quot;)
+
+Riley examines several photographs.
+
+One shows Nora standing beside the cabin.
+
+Another shows Nora in the exact same place...
+
+but facing herself.
+
+&#39;&#39;EVIDENCE FOUND: Duplicate Nora Photograph&#39;&#39;
+
+[[Continue searching-&gt;Hidden Room Search]]</tw-passagedata><tw-passagedata pid="30" name="Search Wall" tags="" position="300,1675" size="100,100">(set: $checkedWall to true)
+(set: $roomSearches to $roomSearches + 1)
+(set: $battery to $battery - 10)
+(set: $clues to $clues + 1)
+
+(display: &quot;HUD&quot;)
+
+Symbols cover the wooden wall.
+
+Riley recognizes one of them.
+
+She saw the same symbol carved into a tree outside.
+
+Next to it someone wrote:
+
+&#39;&#39;IT COPIES WHAT YOU REMEMBER.&#39;&#39;
+
+&#39;&#39;EVIDENCE FOUND: Whisper Symbol&#39;&#39;
+
+[[Continue searching-&gt;Hidden Room Search]]</tw-passagedata><tw-passagedata pid="31" name="Search Backpack" tags="" position="425,1675" size="100,100">(set: $checkedBackpack to true)
+(set: $roomSearches to $roomSearches + 1)
+(set: $battery to $battery - 10)
+(set: $clues to $clues + 1)
+
+(display: &quot;HUD&quot;)
+
+Riley opens an old backpack.
+
+Inside she finds a Polaroid.
+
+Riley and Nora are standing together.
+
+On the back Nora wrote:
+
+&#39;&#39;If we get separated, don&#39;t trust my voice. Trust our signal.&#39;&#39;
+
+&#39;&#39;EVIDENCE FOUND: Nora&#39;s Polaroid&#39;&#39;
+
+[[Continue searching-&gt;Hidden Room Search]]</tw-passagedata><tw-passagedata pid="32" name="Evidence Check" tags="" position="625,1850" size="100,100">(display: &quot;HUD&quot;)
+
+Nora reaches her hand toward Riley.
+
+&quot;Come with me.&quot;
+
+Riley looks at everything she has discovered.
+
+She has only seconds to decide what she can trust.
+
+&#39;&#39;CHOOSE YOUR EVIDENCE&#39;&#39;
+
+(if: $signal is true)[
+[[📢 Test Nora with the private signal-&gt;Signal Evidence]]
+]
+
+(if: $tookBracelet is true)[
+[[🧵 Use the friendship bracelet-&gt;Bracelet Evidence]]
+]
+
+(if: $journal is true)[
+[[📖 Remember Nora&#39;s journal-&gt;Journal Evidence]]
+]
+
+(if: $tessa is true)[
+[[📱 Trust Tessa&#39;s verification-&gt;Tessa Evidence]]
+]
+
+[[Ignore the evidence and go with Nora-&gt;Forest Keeps Two]]</tw-passagedata><tw-passagedata pid="33" name="Signal Evidence" tags="" position="112.5,2000" size="100,100">Riley refuses to move.
+
+Instead, she gives the childhood signal.
+
+Whistle.
+
+Whistle.
+
+Whistle.
+
+Nora&#39;s expression changes.
+
+For a moment, Riley notices something unnatural in her face.
+
+The signal is more reliable than the voice.
+
+&#39;&#39;EVIDENCE CONFIRMED: Private Signal&#39;&#39;
+
+[[Make your final decision-&gt;Ending Check]]</tw-passagedata><tw-passagedata pid="34" name="Bracelet Evidence" tags="" position="250,2000" size="100,100">Riley pulls Nora&#39;s friendship bracelet from her pocket.
+
+&quot;Do you remember this?&quot;
+
+Nora looks at it.
+
+For a second, she hesitates.
+
+Riley realizes the bracelet can trigger memories...
+
+but The Whisper may also have learned those memories.
+
+&#39;&#39;The bracelet is useful, but it is not enough by itself.&#39;&#39;
+
+[[Compare the rest of the evidence-&gt;Ending Check]]</tw-passagedata><tw-passagedata pid="35" name="Journal Evidence" tags="" position="362.5,2000" size="100,100">Riley remembers the warning from Nora&#39;s journal:
+
+&quot;It learns from what you remember.&quot;
+
+If the creature can imitate memories and voices, then Nora&#39;s appearance cannot be trusted.
+
+Riley focuses on evidence that existed before The Whisper could copy it.
+
+&#39;&#39;EVIDENCE CONFIRMED: Nora&#39;s Journal&#39;&#39;
+
+[[Make your final decision-&gt;Ending Check]]</tw-passagedata><tw-passagedata pid="36" name="Tessa Evidence" tags="" position="500,2000" size="100,100">Riley remembers Tessa&#39;s words.
+
+&quot;Nora never called your name when you got separated.&quot;
+
+&quot;She always used three whistles.&quot;
+
+Riley looks back toward the sound coming from the forest.
+
+Whistle.
+
+Whistle.
+
+Whistle.
+
+&#39;&#39;EVIDENCE VERIFIED: Tessa&#39;s Warning&#39;&#39;
+
+[[Make your final decision-&gt;Ending Check]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
